@@ -160,6 +160,7 @@ Listed in alphabetical order.
   Michael Gonzalez         `@genomics-geek`_             @TheCanesBoy2010
   Min ho Kim               `@minho42`_
   mozillazg                `@mozillazg`_
+  Nico Stefani             `@nicolas471`_                @moby_dick91
   Oleg Russkin             `@rolep`_
   Pablo                    `@oubiga`_
   Parbhat Puri             `@parbhat`_
@@ -200,6 +201,7 @@ Listed in alphabetical order.
   William Archinal         `@archinal`_
   Xaver Y.R. Chen          `@yrchen`_                   @yrchen
   Yaroslav Halchenko
+  Yuchen Xie               `@mapx`_
 ========================== ============================ ==============
 
 .. _@a7p: https://github.com/a7p
@@ -291,6 +293,7 @@ Listed in alphabetical order.
 .. _@knitatoms: https://github.com/knitatoms
 .. _@krzysztofzuraw: https://github.com/krzysztofzuraw
 .. _@MathijsHoogland: https://github.com/MathijsHoogland
+.. _@mapx: https://github.com/mapx
 .. _@mattayes: https://github.com/mattayes
 .. _@menzenski: https://github.com/menzenski
 .. _@mfwarren: https://github.com/mfwarren
@@ -304,6 +307,7 @@ Listed in alphabetical order.
 .. _@mrcoles: https://github.com/mrcoles
 .. _@msaizar: https://github.com/msaizar
 .. _@myilmaz: https://github.com/myilmaz
+.. _@nicolas471: https://github.com/nicolas471
 .. _@noisy: https://github.com/noisy
 .. _@originell: https://github.com/originell
 .. _@oubiga: https://github.com/oubiga

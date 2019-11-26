@@ -73,6 +73,7 @@ Listed in alphabetical order.
   Bo Lopker                `@blopker`_
   Bouke Haarsma
   Brent Payne              `@brentpayne`_               @brentpayne
+  Bruce Olivier            `@bolivierjr`_
   Burhan Khalid            `@burhan`_                   @burhan
   Caio Ariede              `@caioariede`_               @caioariede
   Carl Johnson             `@carlmjohnson`_             @carlmjohnson
@@ -112,6 +113,7 @@ Listed in alphabetical order.
   Florian Idelberger       `@step21`_                    @windrush
   Garry Cairns             `@garry-cairns`_
   Garry Polley             `@garrypolley`_
+  Gilbishkosma             `@Gilbishkosma`_
   Hamish Durkin            `@durkode`_
   Hana Quadara             `@hanaquadara`_
   Harry Percival           `@hjwp`_
@@ -137,6 +139,7 @@ Listed in alphabetical order.
   Keyvan Mosharraf         `@keyvanm`_
   Krzysztof Szumny         `@noisy`_
   Krzysztof Żuraw          `@krzysztofzuraw`_
+  Leo won                  `@leollon`_
   Leo Zhou                 `@glasslion`_
   Leonardo Jimenez         `@xpostudio4`_
   Lin Xianyi               `@iynaix`_
@@ -226,6 +229,7 @@ Listed in alphabetical order.
 .. _@bloodpet: https://github.com/bloodpet
 .. _@blopker: https://github.com/blopker
 .. _@bogdal: https://github.com/bogdal
+.. _@bolivierjr: https://github.com/bolivierjr
 .. _@brentpayne: https://github.com/brentpayne
 .. _@btknu: https://github.com/btknu
 .. _@burhan: https://github.com/burhan
@@ -268,6 +272,7 @@ Listed in alphabetical order.
 .. _@foarsitter: https://github.com/foarsitter
 .. _@garry-cairns: https://github.com/garry-cairns
 .. _@garrypolley: https://github.com/garrypolley
+.. _@Gilbishkosma: https://github.com/Gilbishkosma
 .. _@glasslion: https://github.com/glasslion
 .. _@goldhand: https://github.com/goldhand
 .. _@hackebrot: https://github.com/hackebrot
@@ -292,6 +297,7 @@ Listed in alphabetical order.
 .. _@keyvanm: https://github.com/keyvanm
 .. _@knitatoms: https://github.com/knitatoms
 .. _@krzysztofzuraw: https://github.com/krzysztofzuraw
+.. _@leollon: https://github.com/leollon
 .. _@MathijsHoogland: https://github.com/MathijsHoogland
 .. _@mapx: https://github.com/mapx
 .. _@mattayes: https://github.com/mattayes

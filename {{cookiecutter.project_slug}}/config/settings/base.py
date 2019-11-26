@@ -139,6 +139,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/dev/ref/settings/#middleware
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+{%- if cookiecutter.use_whitenoise == 'y' %}
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+{%- endif %}
     "django.contrib.sessions.middleware.SessionMiddleware",
     {% if cookiecutter.js_task_runner == "CreateReactApp" -%}
     "corsheaders.middleware.CorsMiddleware",  # SEE: https://github.com/ottoyiu/django-cors-headers#setup

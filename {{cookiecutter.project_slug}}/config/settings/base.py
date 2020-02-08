@@ -72,6 +72,7 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
     # "django.contrib.humanize", # Handy template tags
     "django.contrib.admin",
+    "django.forms",
 ]
 THIRD_PARTY_APPS = [
     "crispy_forms",
@@ -79,13 +80,14 @@ THIRD_PARTY_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "rest_framework",
-    {%- if cookiecutter.js_task_runner == "CreateReactApp" -%}
+    {% if cookiecutter.js_task_runner == "CreateReactApp" -%}
     "corsheaders",
+    "graphene_django",
+    "django_filters",
     {%- endif %}
-    {%- if cookiecutter.use_celery == 'y' -%}
+    {% if cookiecutter.use_celery == 'y' -%}
     "django_celery_beat",
     {%- endif %}
-    "graphene_django",
 ]
 
 LOCAL_APPS = [
@@ -151,6 +153,7 @@ MIDDLEWARE = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.common.BrokenLinkEmailsMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
@@ -214,6 +217,10 @@ TEMPLATES = [
         },
     }
 ]
+
+# https://docs.djangoproject.com/en/dev/ref/settings/#form-renderer
+FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
+
 # http://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
@@ -314,25 +321,17 @@ ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_ADAPTER = "{{cookiecutter.project_slug}}.users.adapters.AccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 SOCIALACCOUNT_ADAPTER = "{{cookiecutter.project_slug}}.users.adapters.SocialAccountAdapter"
-
 {% if cookiecutter.use_compressor == 'y' -%}
 # django-compressor
 # ------------------------------------------------------------------------------
 # https://django-compressor.readthedocs.io/en/latest/quickstart/#installation
 INSTALLED_APPS += ["compressor"]
 STATICFILES_FINDERS += ["compressor.finders.CompressorFinder"]
-
 {%- endif %}
-{% if cookiecutter.js_task_runner == "CreateReactApp" -%}
-# django-cors-headers
-# ------------------------------------------------------------------------------
-# https://github.com/ottoyiu/django-cors-headers#cors_origin_allow_all
-CORS_ORIGIN_ALLOW_ALL = True
-{%- endif %}
-
-# DJANGO REST FRAMEWORK
-# ------------------------------------------------------------------------------
-# http://www.django-rest-framework.org/
+{% if cookiecutter.use_drf == "y" -%}
+# django-reset-framework
+# -------------------------------------------------------------------------------
+# django-rest-framework - https://www.django-rest-framework.org/api-guide/settings/
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": (
         "rest_framework.permissions.IsAuthenticated",
@@ -353,8 +352,14 @@ REST_FRAMEWORK = {
     # NOTE: See: https://www.django-rest-framework.org/community/3.10-announcement/#continuing-to-use-coreapi
     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
 }
+{%- endif %}
+{% if cookiecutter.js_task_runner == "CreateReactApp" -%}
+# django-cors-headers
+# ------------------------------------------------------------------------------
+# https://github.com/ottoyiu/django-cors-headers#cors_origin_allow_all
+CORS_ORIGIN_ALLOW_ALL = True
 
-# Graphene Setup
+# Graphene Setup for GraphQL
 # ------------------------------------------------------------------------------
 # See: http://docs.graphene-python.org/projects/django/en/latest/tutorial-plain/#update-settings
 GRAPHENE = {
@@ -368,6 +373,7 @@ GRAPHENE = {
 # NOTE: As Graphene schema gets larger, it needs more room to run the recursive graphql queries
 # See: https://github.com/graphql-python/graphene/issues/663
 GRAPHENE_RECURSION_LIMIT = env.int("GRAPHENE_RECURSION_LIMIT", default=3500)
+{%- endif %}
 
 # Your stuff...
 # ------------------------------------------------------------------------------

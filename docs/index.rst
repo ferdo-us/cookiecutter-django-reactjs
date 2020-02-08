@@ -19,6 +19,8 @@ Contents:
    linters
    live-reloading-and-sass-compilation
    create-react-app
+   testing
+   document
    deployment-on-pythonanywhere
    deployment-on-heroku
    deployment-with-docker

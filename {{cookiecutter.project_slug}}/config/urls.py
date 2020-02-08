@@ -5,23 +5,20 @@ from django.contrib import admin
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
-
+{% if cookiecutter.use_drf == 'y' -%}
 from graphene_file_upload.django import FileUploadGraphQLView
+{%- endif -%}
+{%- if cookiecutter.use_drf == 'y' -%}
+from rest_framework.authtoken.views import obtain_auth_token
 from rest_framework.documentation import include_docs_urls
-from rest_framework.routers import DefaultRouter
+{%- endif %}
 
 
-router = DefaultRouter(trailing_slash=False)
 
 
 urlpatterns = [
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
     re_path(r'^app/(?P<route>.*)$', TemplateView.as_view(template_name="index.html"), name='app'),
-
-    # APIs
-    path("api/", include(router.urls)),
-    path("api-docs/", include_docs_urls(title="{{ cookiecutter.project_name }} REST API", public=False)),
-    path("graphql/", csrf_exempt(FileUploadGraphQLView.as_view(graphiql=True, pretty=True))),
 
     # User management from django-all-auth
     path("about/", TemplateView.as_view(template_name="pages/about.html"), name="about"),
@@ -34,6 +31,25 @@ urlpatterns = [
     # Your stuff: custom urls includes go here
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+{% if cookiecutter.use_drf == 'y' -%}
+# API URLS
+urlpatterns += [
+    # API base url
+    path("api/", include("config.api_router")),
+    # DRF auth token
+    path("auth-token/", obtain_auth_token),
+    # DRF API docs
+    path("api-docs/", include_docs_urls(title="{{ cookiecutter.project_name }} REST API", public=False)),
+]
+{%- endif %}
+
+{% if cookiecutter.js_task_runner == 'CreateReactApp' -%}
+# API URLS
+urlpatterns += [
+    # GraphQL
+    path("graphql/", csrf_exempt(FileUploadGraphQLView.as_view(graphiql=True, pretty=True))),
+]
+{%- endif %}
 
 if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit

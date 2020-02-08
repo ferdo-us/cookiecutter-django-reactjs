@@ -354,7 +354,6 @@ REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
 }
 {%- endif %}
-
 {% if cookiecutter.js_task_runner == "react" -%}
 # django-cors-headers
 # ------------------------------------------------------------------------------
